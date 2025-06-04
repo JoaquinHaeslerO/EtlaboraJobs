@@ -18,14 +18,22 @@ const images = [
   {
     url: 'https://images.unsplash.com/photo-1587293852726-70cdb56c2866',
     filename: 'containers.jpg'
+  },
+  {
+    url: 'https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_Germany.svg',
+    filename: 'germany-flag.svg'
+  },
+  {
+    url: 'https://upload.wikimedia.org/wikipedia/commons/2/20/Flag_of_the_Netherlands.svg',
+    filename: 'netherlands-flag.svg'
   }
 ];
 
 const downloadImage = (url, filename) => {
-  const filepath = path.join(__dirname, 'src', 'assets', 'images', filename);
+  const filepath = path.join(__dirname, 'public', 'images', filename);
   const file = fs.createWriteStream(filepath);
 
-  https.get(`${url}?q=80&w=2070`, (response) => {
+  https.get(`${url}${filename.endsWith('.jpg') ? '?q=80&w=2070' : ''}`, (response) => {
     response.pipe(file);
     file.on('finish', () => {
       file.close();
@@ -38,7 +46,7 @@ const downloadImage = (url, filename) => {
 };
 
 // Crear el directorio si no existe
-const imagesDir = path.join(__dirname, 'src', 'assets', 'images');
+const imagesDir = path.join(__dirname, 'public', 'images');
 if (!fs.existsSync(imagesDir)) {
   fs.mkdirSync(imagesDir, { recursive: true });
 }
