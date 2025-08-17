@@ -11,10 +11,15 @@ const Header = () => {
 
   return (
     <header className="bg-white shadow-md">
-      <nav className="container mx-auto px-4 py-4">
+      <nav className="container mx-auto px-4 py-4" aria-label="Principal">
         <div className="flex justify-between items-center">
-          <Link to="/" className="text-2xl font-bold text-blue-600">
-            {t('site.name')}
+          <Link to="/" className="flex items-center" aria-label={t('site.name')}>
+            <img
+              src="/images/logo-dark.png"
+              alt={t('site.name')}
+              className="h-8 w-auto md:h-10"
+              decoding="async"
+            />
           </Link>
           
           <div className="hidden md:flex items-center space-x-6">
@@ -39,6 +44,9 @@ const Header = () => {
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-gray-600 hover:text-blue-600 focus:outline-none"
+              aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
+              aria-controls="primary-menu"
+              aria-expanded={isMenuOpen}
             >
               {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
             </button>
@@ -47,7 +55,7 @@ const Header = () => {
 
         {/* Menú móvil desplegable */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 py-4 border-t border-gray-100">
+          <div id="primary-menu" className="md:hidden mt-4 py-4 border-t border-gray-100" role="menu">
             <div className="flex flex-col space-y-4">
               <Link
                 to="/"

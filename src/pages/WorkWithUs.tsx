@@ -6,7 +6,7 @@ const WorkWithUs: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="min-h-screen bg-gray-50 relative">
+    <div className="min-h-screen bg-gray-50 relative" role="document">
       {/* Fondo con patrón */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Patrón de fondo */}

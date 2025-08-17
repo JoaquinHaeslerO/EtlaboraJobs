@@ -60,46 +60,31 @@ const Hero: React.FC = () => {
   return (
     <section className="relative bg-primary overflow-hidden">
       {/* Fondo con imágenes */}
-      <div className="absolute inset-0">
-        {/* Collage de imágenes */}
-        <div className="absolute inset-0 opacity-80">
-          <div className="absolute inset-0 bg-cover bg-center transform scale-105 transition-transform duration-1000 hover:scale-110"
-            style={{
-              backgroundImage: `url(${IMAGES.LOGISTICS.WAREHOUSE})`,
-              filter: 'contrast(1.2) brightness(0.9)'
-            }}
-          />
-          <div className="absolute top-0 right-0 w-1/2 h-full bg-cover bg-center transform scale-105 transition-transform duration-1000 hover:scale-110"
-            style={{
-              backgroundImage: `url(${IMAGES.LOGISTICS.FORKLIFT})`,
-              opacity: 0.9,
-              filter: 'contrast(1.2) brightness(0.9)'
-            }}
-          />
-          <div className="absolute bottom-0 left-0 w-1/2 h-2/3 bg-cover bg-center transform scale-105 transition-transform duration-1000 hover:scale-110"
-            style={{
-              backgroundImage: `url(${IMAGES.LOGISTICS.CONTAINERS})`,
-              opacity: 0.9,
-              filter: 'contrast(1.2) brightness(0.9)'
-            }}
-          />
-        </div>
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Fondo único más natural */}
+        <div className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: `url(${IMAGES.BACKGROUNDS.HERO})`,
+            filter: 'contrast(1.05) brightness(0.98)'
+          }}
+        />
 
         {/* Patrón de fondo con efecto de movimiento */}
         <div className="absolute inset-0 bg-gradient-to-b from-primary/40 to-primary/80" />
         
-        {/* Banderas con efecto de ondeo */}
-        <div className="absolute top-0 right-0 w-full h-full">
-          {/* Bandera de Alemania */}
-          <div className="absolute top-8 right-8 w-40 h-24 wave-animation opacity-60">
-            <img src={IMAGES.FLAGS.GERMANY} alt="Bandera de Alemania" className="w-full h-full filter drop-shadow-lg" />
-          </div>
-          
-          {/* Bandera de Holanda */}
-          <div className="absolute top-32 right-32 w-40 h-24 wave-animation opacity-60" style={{ animationDelay: '-7s' }}>
-            <img src={IMAGES.FLAGS.NETHERLANDS} alt="Bandera de Holanda" className="w-full h-full filter drop-shadow-lg" />
-          </div>
-        </div>
+        {/* Bloque lateral eliminado por solicitud */}
+
+        {/* Imagen decorativa izquierda (manwalking) */}
+        <img
+          src="/images/manwalking.jpg"
+          alt=""
+          aria-hidden="true"
+          className="hidden md:block absolute left-0 bottom-0 h-full w-auto opacity-40 pointer-events-none object-cover"
+          style={{
+            WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,.9) 50%, rgba(0,0,0,0) 95%)',
+            maskImage: 'linear-gradient(to right, rgba(0,0,0,.9) 50%, rgba(0,0,0,0) 95%)',
+          }}
+        />
 
         {/* Overlay gradiente más suave */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/50 via-primary/40 to-primary/30" />
@@ -107,7 +92,7 @@ const Hero: React.FC = () => {
 
       <div className="container mx-auto px-4 py-12 relative">
         <div className="max-w-4xl mx-auto text-center text-white">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight float-animation drop-shadow-lg">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight drop-shadow-lg">
             {t('hero.title')}
           </h1>
           <p className="text-lg md:text-xl mb-6 text-gray-100 drop-shadow-md">
@@ -121,21 +106,22 @@ const Hero: React.FC = () => {
           </Link>
         </div>
 
-        {/* Estadísticas con efecto glassmorphism mejorado */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto mt-12">
-          <div className="text-center text-white glass-card rounded-xl p-4 transform hover:scale-105 transition-all duration-300">
-            <div className="text-3xl font-bold mb-1 float-animation drop-shadow-lg">500+</div>
-            <div className="text-sm text-gray-100">{t('hero.stats.placements')}</div>
-          </div>
-          <div className="text-center text-white glass-card rounded-xl p-4 transform hover:scale-105 transition-all duration-300">
-            <div className="text-3xl font-bold mb-1 float-animation drop-shadow-lg" style={{ animationDelay: '-2s' }}>50+</div>
+        {/* Estadísticas como lista accesible */}
+        <ul className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto mt-12" aria-label="Estadísticas">
+          <li className="text-center text-white glass-card rounded-xl p-4">
+            <div className="text-lg font-semibold mb-1 drop-shadow-lg">
+              {t('hero.stats.placements')} en diferentes países
+            </div>
+          </li>
+          <li className="text-center text-white glass-card rounded-xl p-4">
+            <div className="text-3xl font-bold mb-1 drop-shadow-lg">50+</div>
             <div className="text-sm text-gray-100">{t('hero.stats.companies')}</div>
-          </div>
-          <div className="text-center text-white glass-card rounded-xl p-4 transform hover:scale-105 transition-all duration-300">
-            <div className="text-3xl font-bold mb-1 float-animation drop-shadow-lg" style={{ animationDelay: '-4s' }}>2</div>
+          </li>
+          <li className="text-center text-white glass-card rounded-xl p-4">
+            <div className="text-3xl font-bold mb-1 drop-shadow-lg">2</div>
             <div className="text-sm text-gray-100">{t('hero.stats.countries')}</div>
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
     </section>
   );

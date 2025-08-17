@@ -6,7 +6,7 @@ const ForCompanies = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8" role="document">
       <div className="max-w-7xl mx-auto">
         {/* Encabezado */}
         <div className="text-center mb-12">
@@ -68,6 +68,16 @@ const ForCompanies = () => {
             </div>
           </div>
         </div>
+
+        {/* Imagen contextual armonizada (debajo del formulario) */}
+        <figure className="rounded-2xl overflow-hidden shadow-md ring-1 ring-black/5 w-full h-40 md:h-56 max-w-3xl mx-auto mt-16">
+          <img
+            src="/images/shipyard.jpg"
+            alt="Astillero al atardecer, símbolo de industria y cooperación"
+            className="w-full h-full object-cover object-top saturate-105 contrast-105"
+            loading="lazy"
+          />
+        </figure>
       </div>
     </div>
   );

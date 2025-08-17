@@ -226,14 +226,14 @@ const WhyWorkAbroad = () => {
           </div>
         </div>
 
-        {/* CTA mejorado */}
-        <div className="mt-20 text-center bg-blue-600 rounded-2xl p-12 transform hover:scale-[1.02] transition-all duration-300">
-          <p className="text-2xl font-bold text-white mb-6 leading-relaxed">
+        {/* CTA compacto y con enlace */}
+        <div className="mt-16 text-center bg-blue-600 rounded-xl p-6 md:p-8">
+          <p className="text-lg md:text-xl font-semibold text-white mb-4 leading-snug">
             {t('why.cta.title')}
           </p>
-          <button className="inline-flex items-center px-8 py-4 border-2 border-white text-lg font-bold rounded-xl text-white hover:bg-white hover:text-blue-600 transition-all duration-300">
+          <a href="/work-with-us#candidate-form" className="inline-flex items-center px-6 py-3 border-2 border-white text-base md:text-lg font-semibold rounded-lg text-white hover:bg-white hover:text-blue-600 transition-all duration-200">
             {t('why.cta.button')}
-          </button>
+          </a>
         </div>
       </div>
     </section>

@@ -7,7 +7,7 @@ import CTA from '../components/CTA';
 
 const Home = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" role="document">
       <Hero />
       <WhyWorkAbroad />
       <Services />

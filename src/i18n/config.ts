@@ -86,6 +86,9 @@ i18n
           'about.values.respect': 'Respeto por nuestros usuarios y clientes',
           'about.why.title': '¿Por qué elegirnos?',
           'about.why.desc': 'Combinamos tecnología avanzada con un enfoque humano para ofrecer la mejor experiencia tanto a empresas como a candidatos. Nuestro equipo está comprometido con el éxito de cada proceso de selección.',
+          // Quote
+          'about.quote.text': 'La diligencia es madre de la buena fortuna.',
+          'about.quote.author': 'Miguel de Cervantes',
 
           // For Companies
           'companies.title': 'Encuentre el talento que necesita',
@@ -284,6 +287,9 @@ i18n
           'about.values.respect': 'Respect for our users and clients',
           'about.why.title': 'Why choose us?',
           'about.why.desc': 'We combine advanced technology with a human approach to offer the best experience for both companies and candidates. Our team is committed to the success of each selection process.',
+          // Quote
+          'about.quote.text': 'Diligence is the mother of good fortune.',
+          'about.quote.author': 'Miguel de Cervantes',
 
           // For Companies
           'companies.title': 'Find the talent you need',
@@ -482,6 +488,9 @@ i18n
           'about.values.respect': 'Respekt für unsere Nutzer und Kunden',
           'about.why.title': 'Warum uns wählen?',
           'about.why.desc': 'Wir kombinieren fortschrittliche Technologie mit einem menschlichen Ansatz, um sowohl Unternehmen als auch Kandidaten die beste Erfahrung zu bieten. Unser Team ist dem Erfolg jedes Auswahlprozesses verpflichtet.',
+          // Quote
+          'about.quote.text': 'Fleiß ist die Mutter des Glücks.',
+          'about.quote.author': 'Miguel de Cervantes',
 
           // For Companies
           'companies.title': 'Finden Sie die Talente, die Sie brauchen',

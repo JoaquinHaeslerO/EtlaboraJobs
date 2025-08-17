@@ -21,6 +21,9 @@ const LanguageSelector: React.FC = () => {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors"
+        aria-haspopup="listbox"
+        aria-expanded={isOpen}
+        aria-label={t('language.select')}
       >
         <img 
           src={currentLanguage.flag} 
@@ -39,7 +42,7 @@ const LanguageSelector: React.FC = () => {
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 mt-2 py-2 w-48 bg-white rounded-lg shadow-xl z-50">
+        <div className="absolute right-0 mt-2 py-2 w-48 bg-white rounded-lg shadow-xl z-50" role="listbox">
           {languages.map((language) => (
             <button
               key={language.code}
@@ -47,6 +50,8 @@ const LanguageSelector: React.FC = () => {
                 i18n.changeLanguage(language.code);
                 setIsOpen(false);
               }}
+              role="option"
+              aria-selected={language.code === currentLanguage.code}
               className={`w-full text-left px-4 py-2 hover:bg-gray-100 transition-colors flex items-center space-x-3
                 ${language.code === currentLanguage.code ? 'bg-gray-50' : ''}`}
             >

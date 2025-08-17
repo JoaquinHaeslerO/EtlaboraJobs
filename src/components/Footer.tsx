@@ -7,16 +7,35 @@ const Footer: React.FC = () => {
   const { t } = useTranslation();
 
   const socialLinks = [
-    { icon: <FaFacebook />, href: "#", label: "Facebook" },
-    { icon: <FaTwitter />, href: "#", label: "Twitter" },
-    { icon: <FaLinkedin />, href: "#", label: "LinkedIn" },
-    { icon: <FaInstagram />, href: "#", label: "Instagram" }
+    { icon: <FaFacebook />, href: "https://www.facebook.com/people/EtLabora-Jobs/61579093629716/", label: "Facebook" },
+    { icon: <FaTwitter />, href: "https://x.com/EtlaboraJobs", label: "Twitter" },
+    { icon: <FaLinkedin />, href: "https://www.linkedin.com/company/etlaborajobs/", label: "LinkedIn" },
+    { icon: <FaInstagram />, href: "https://www.instagram.com/etlaborajobs?igsh=MzhyZGR3NWF6MXh6", label: "Instagram" }
   ];
 
+  const lang = (typeof window !== 'undefined' ? (window as any).i18next?.language : undefined) || (t as any).i18n?.language || 'es';
+  const base = lang.startsWith('en') ? '/legal/en' : lang.startsWith('de') ? '/legal/de' : '/legal';
+  const mapFile = (type: 'legal' | 'privacy' | 'cookies') => {
+    if (lang.startsWith('en')) {
+      if (type === 'legal') return 'imprint.html';
+      if (type === 'privacy') return 'privacy.html';
+      return 'cookies.html';
+    }
+    if (lang.startsWith('de')) {
+      if (type === 'legal') return 'impressum.html';
+      if (type === 'privacy') return 'datenschutz.html';
+      return 'cookies.html';
+    }
+    // es por defecto
+    if (type === 'legal') return 'aviso-legal.html';
+    if (type === 'privacy') return 'privacy.html';
+    return 'cookies.html';
+  };
+
   const legalLinks = [
-    { text: t('footer.legal'), href: "#" },
-    { text: t('footer.privacy'), href: "#" },
-    { text: t('footer.contact'), href: "#contacto" }
+    { text: t('footer.legal'), href: `${base}/${mapFile('legal')}` },
+    { text: t('footer.privacy'), href: `${base}/${mapFile('privacy')}` },
+    { text: t('footer.cookies'), href: `${base}/${mapFile('cookies')}` }
   ];
 
   return (
@@ -24,7 +43,7 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">{t('site.name')}</h3>
+            <img src="/images/logo-light.png" alt={t('site.name')} className="h-8 w-auto mb-4" />
             <p className="text-gray-400">
               {t('site.description')}
             </p>
@@ -85,6 +104,8 @@ const Footer: React.FC = () => {
                 key={index}
                 href={link.href}
                 className="text-gray-400 hover:text-white transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label={link.label}
               >
                 {link.icon}

@@ -7,23 +7,19 @@ const Testimonials = () => {
 
   const testimonials = [
     {
-      name: t('testimonials.1.name'),
-      role: t('testimonials.1.role'),
-      content: t('testimonials.1.content'),
-      rating: 5
+      name: 'María P.',
+      role: 'Camarera en Rotterdam',
+      content:
+        'Sentí que había un equipo detrás de mí en todo momento. En menos de un mes estaba trabajando y con alojamiento. Me explicaron cada paso sin letra pequeña.',
+      rating: 5,
     },
     {
-      name: t('testimonials.2.name'),
-      role: t('testimonials.2.role'),
-      content: t('testimonials.2.content'),
-      rating: 5
+      name: 'Diego R.',
+      role: 'Operario logístico en Múnich',
+      content:
+        'Me ayudaron con el CV y las entrevistas. El proceso fue claro y honesto, y ya estoy aprendiendo alemán con el apoyo de la empresa.',
+      rating: 5,
     },
-    {
-      name: t('testimonials.3.name'),
-      role: t('testimonials.3.role'),
-      content: t('testimonials.3.content'),
-      rating: 5
-    }
   ];
 
   return (
@@ -33,15 +29,15 @@ const Testimonials = () => {
           {t('testimonials.title')}
         </h2>
         
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8">
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
               className="bg-gray-50 p-6 rounded-2xl shadow-soft"
             >
-              <div className="flex mb-4">
+              <div className="flex mb-4" aria-label={`Valoración: ${testimonial.rating} de 5`}>
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <FaStar key={i} className="text-accent" />
+                  <FaStar key={i} className="text-accent" aria-hidden="true" />
                 ))}
               </div>
               <p className="text-gray-600 mb-6">"{testimonial.content}"</p>

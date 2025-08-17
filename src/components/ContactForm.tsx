@@ -66,17 +66,28 @@ const ContactForm = () => {
             </label>
             <div className="mt-1">
               <input
+                id="companyName"
                 {...register('companyName')}
                 type="text"
                 placeholder="Ej: Empresa S.L."
                 className={`appearance-none block w-full px-3 py-2 border ${
                   errors.companyName ? 'border-red-300' : 'border-gray-300'
                 } rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm`}
+                aria-invalid={!!errors.companyName}
+                aria-describedby={errors.companyName ? 'companyName-error' : undefined}
+                required
               />
               {errors.companyName && (
-                <p className="mt-1 text-sm text-red-600">{errors.companyName.message}</p>
+                <p id="companyName-error" role="alert" className="mt-1 text-sm text-red-600">{errors.companyName.message}</p>
               )}
             </div>
+          </div>
+
+          <div className="flex items-start gap-2">
+            <input id="privacy-emp" type="checkbox" required className="mt-1" />
+            <label htmlFor="privacy-emp" className="text-sm text-gray-700">
+              He leído y acepto la <a href="/legal/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline">Política de Privacidad</a>.
+            </label>
           </div>
 
           <div>
@@ -85,15 +96,19 @@ const ContactForm = () => {
             </label>
             <div className="mt-1">
               <input
+                id="email"
                 {...register('email')}
                 type="email"
                 placeholder="contacto@empresa.com"
                 className={`appearance-none block w-full px-3 py-2 border ${
                   errors.email ? 'border-red-300' : 'border-gray-300'
                 } rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm`}
+                aria-invalid={!!errors.email}
+                aria-describedby={errors.email ? 'email-error' : undefined}
+                required
               />
               {errors.email && (
-                <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
+                <p id="email-error" role="alert" className="mt-1 text-sm text-red-600">{errors.email.message}</p>
               )}
             </div>
           </div>
@@ -104,15 +119,19 @@ const ContactForm = () => {
             </label>
             <div className="mt-1">
               <input
+                id="phone"
                 {...register('phone')}
                 type="tel"
                 placeholder="+34 600 000 000"
                 className={`appearance-none block w-full px-3 py-2 border ${
                   errors.phone ? 'border-red-300' : 'border-gray-300'
                 } rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm`}
+                aria-invalid={!!errors.phone}
+                aria-describedby={errors.phone ? 'phone-error' : undefined}
+                required
               />
               {errors.phone && (
-                <p className="mt-1 text-sm text-red-600">{errors.phone.message}</p>
+                <p id="phone-error" role="alert" className="mt-1 text-sm text-red-600">{errors.phone.message}</p>
               )}
             </div>
           </div>
@@ -123,15 +142,19 @@ const ContactForm = () => {
             </label>
             <div className="mt-1">
               <textarea
+                id="message"
                 {...register('message')}
                 rows={4}
                 placeholder="Describe las posiciones que necesitas cubrir, requisitos específicos y cualquier información relevante..."
                 className={`appearance-none block w-full px-3 py-2 border ${
                   errors.message ? 'border-red-300' : 'border-gray-300'
                 } rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm`}
+                aria-invalid={!!errors.message}
+                aria-describedby={errors.message ? 'message-error' : undefined}
+                required
               />
               {errors.message && (
-                <p className="mt-1 text-sm text-red-600">{errors.message.message}</p>
+                <p id="message-error" role="alert" className="mt-1 text-sm text-red-600">{errors.message.message}</p>
               )}
             </div>
           </div>
